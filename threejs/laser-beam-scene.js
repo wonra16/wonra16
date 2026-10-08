@@ -919,14 +919,14 @@ export function createCrystalScene(canvas) {
 
   const api = {
     scene, camera, renderer, gun, beam,
-    shiftColour, shiftColor: shiftColour, cyclePalette: shiftColour, nextPalette: shiftColour,
+    shiftColour, shiftColor: shiftColour, shiftPalette: shiftColour, cyclePalette: shiftColour, nextPalette: shiftColour,
     setPalette: (i) => { paletteIndex = ((i % PALETTES.length) + PALETTES.length) % PALETTES.length; applyPalette(PALETTES[paletteIndex]); },
     pause: () => setPaused(true),
     resume: () => setPaused(false),
     play: () => setPaused(false),
     setPaused,
     togglePause: () => setPaused(!paused),
-    toggleMotion: () => !setPaused(!paused),
+    toggleMotion: () => setPaused(!paused), // interaction.js: true = durduruldu
     isPaused: () => paused,
     get paused() { return paused; },
     resize,
