@@ -1,0 +1,13 @@
+{
+  "name": "gyrion-vfx-preview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "shot:aura": "node shot.mjs ../beyblade-aura-scene.js aura.png",
+    "shot:laser": "node shot.mjs ../laser-beam-scene.js laser.png"
+  },
+  "dependencies": {
+    "three": "0.186.1",
+    "playwright": "^1.55.0"
+  }
+}

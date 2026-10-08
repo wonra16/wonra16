@@ -15,4 +15,5 @@ node_modules
 
 # Foundry files
 /out
-/cache_forge
+/cache_forgethreejs/preview/node_modules/
+threejs/preview/*.png
