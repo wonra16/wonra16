@@ -8,8 +8,8 @@
 //   VEKTOR / Broken Prism   -> mor/prizma girdap + yorungede kirik kristaller
 //
 // Unity'ye ayni matematikle tasindi: unity/GyrionBeyAura/
-// Kontroller: topaca tikla = patlama (skill), surukle = kamera,
-//             "Shift colour" = secili topacin aura rengini degistir.
+// SADECE AURA (topac modeli yok). Kontroller: auraya tikla = patlama (skill),
+// surukle = kamera, "Shift colour" = secili auranin rengini degistir.
 // =============================================================================
 
 import * as THREE from 'three';
@@ -181,6 +181,8 @@ const RING_FS = /* glsl */ `
 
 export function createCrystalScene(canvas) {
   const CFG = { exposure: 1.0, bloomStrength: 0.95, bloomThreshold: 0.9, bloomKnee: 0.5 };
+  // Sadece auralar gosterilir. Ornek topac modelini gormek istersen true yap.
+  const SHOW_PLACEHOLDER_TOPS = false;
 
   const size = () => ({
     w: Math.max(1, Math.floor(canvas.clientWidth || window.innerWidth)),
@@ -512,7 +514,7 @@ export function createCrystalScene(canvas) {
     const top = makeTop(FAMILIES[fam].colA);
     top.group.position.set(x, 0, z);
     top.group.scale.setScalar(1.3);
-    scene.add(top.group);
+    if (SHOW_PLACEHOLDER_TOPS) scene.add(top.group);
     // tiklama icin gorunmez hacim
     const hit = new THREE.Mesh(track(new THREE.CylinderGeometry(0.9, 0.9, 1.2, 12)), new THREE.MeshBasicMaterial({ visible: false }));
     hit.position.set(x, 0.6, z);
